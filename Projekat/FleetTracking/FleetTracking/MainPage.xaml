@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="FleetTracking.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FleetTracking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-211,-255">
+        <Button x:Name="clickMeButton" Content="Click on me!" HorizontalAlignment="Left" Margin="117,119,0,0" VerticalAlignment="Top" Height="103" Width="344" FontSize="32" Click="clickMeButton_Click"/>
+        <TextBlock x:Name="HWtextBlock" HorizontalAlignment="Left" Margin="46,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="462" Foreground="Black" FontSize="64" TextAlignment="Center" Text=""/>
+
+    </Grid>
+</Page>
