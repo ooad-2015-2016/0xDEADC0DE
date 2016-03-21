@@ -1,0 +1,115 @@
+|-------------------------------|
+|         MOCKUP FORMI          |
+|-------------------------------|
+
+Globalni administrator
+=====================
+
+Groups (Benjo)
+Clients (Muamer)
+Stats (Muhamed)
+
+
+Administrator-klijent
+=====================
+
+Index (Ahmed)
+
+Vehicles (Benjo)
+Drivers (Muamer)
+Routes (Muhamed)
+Invoices (Ahmed)
+Map (Benjo)
+Stats (Muamer)
+
+Neregistrovani korisnik (homepage stranice, dakle nije admin prostor)
+======================
+
+Index (Pariæ)
+
+|-------------------------------|
+|     DIJAGRAMI AKTIVNOSTI      |
+|-------------------------------|
+
+Ahmed - 1
+Benjo - 2
+Muamer - 3
+Muhamed - 4
+
+Aktivnosti administrator-klijenta:
+
+Registracija - 1
+Prijava - 2
+Dodavanje vozila - 3
+Dodavanje vozaèa - 4
+Dodavanje rute - 1
+Brisanje vozila - 2
+Brisanje vozaèa - 3 
+Brisanje rute - 4
+Izmjena vozila - 1
+Izmjena vozaèa - 2
+Izmjena rute - 3
+Pregled vozila - 4
+Pregled vozaèa - 1
+Pregled ruta - 2
+Pregled kretanja jednog vozila - 3
+Pregled jedne rute (kretanja vozila po toj ruti) - 4
+Pregled kretanja jednog vozaèa - 1
+Pregled svih vozila na mapi (checkiranje iz liste) - 2
+
+
+Aktivnosti globalnog administratora:
+
+Verifikacija administrator-klijenta - 3
+Dodavanje grupe - 4
+Dodjeljivanje administrator-klijenta grupi - 1
+Pregled grupa - 2
+Izmjena grupe - 3
+Brisanje grupe - 4
+Brisanje administrator-klijenta - 1
+Dodavanje ureðaja (globalno u sistem) - 2
+Dodjeljivanje ureðaja grupi - 3
+Mapa trenutnog/trenutnih vozila u pokretu - 4
+Lista svih trenutnih vozila u pokretu - 1
+Pregled podataka administrator-klijenta - 2
+Pregled podataka grupe - 3
+
+Aktivnosti neregistrovanog korisnika:
+
+Pregled javnih kompanija/vozila - 4
+Pregled privatnih kompanija/vozila - koristenje tokena - 1
+
+
+|-------------------------------|
+|            NAPOMENE           |
+|-------------------------------|
+
+VEÈERAS ZAVRŠITI, NEMA ŠPRDANCIJE.
+SNIMATI I PROJECT I PDF EXPORTOVATI.
+COMMITATI SVE.
+POGLEDATI VJEŽBU 3 ZA DIJAGRAME AKTIVNOSTI.
+ISPOD SOFTVER KOJI SE KORISTI SA AKTIVACIJOM.
+
+PRATITI IMENOVANJE OPISANO OVDJE
+
+https://github.com/ooad-2015-2016/Obavijesti/issues/8
+
+|-------------------------------|
+|            SOFTVER            |
+|-------------------------------|
+
+Visual Paradigm 2015 (educational version)
+=====================
+
+Balsamiq Mockups
+=====================
+https://github.com/phthuong/Mockup/blob/master/Balsamiq%20Mockup%20for%20Desktop%20Serial.txt
+
+Name: tuan.cse06 - SoftVnn
+
+eJzzzU/OLi0odswsqikpTczTSy5ONTBT0FUIzk8rCcvLq7FEAjXONYY1f u6ufgD21RF1
+
+
+
+21.03.2016. (14:00-16:00)
+pariæ, poliæ, popoviæ, ramiæ prisutni
