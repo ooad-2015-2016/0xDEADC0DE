@@ -1,4 +1,4 @@
-![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/deadc0de.png)
+![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/header.png)
 
 # 0xDEADC0DE
 
@@ -104,3 +104,5 @@ Sistem fleet tracking je SaaS, dakle korisnik ovog sistema neće brinuti o tehni
   * Ima svoj unikatni identifikator
   * Evidentiran je u databazi i povezan je sa određenom grupom
   * Komunicira sa serverom putem HTTP protokola i šalje trenutnu lokaciju i svoj ID
+
+  ![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/deadcode.png)
