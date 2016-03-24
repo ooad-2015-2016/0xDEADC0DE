@@ -1,0 +1,46 @@
+*************************************************
+*	Novi To-Do, Projektni zadatak4!		*
+*************************************************
+
+*********************************************************
+*	Krajnji rok za predaju je 27.03.2016.!!!	*
+*********************************************************
+
+Proèitati issue na sljedeæem linku:
+https://github.com/ooad-2015-2016/Obavijesti/issues/11
+
+Potrebno je kreirati dijagrame klasa za naš projekat!
+
+Potrebno izvršiti analizu svega do sada uraðenog i napisati spisak klasa koje æe softver sadržavati, kao i atribute i metode.
+Primjer:
+-GlobalniAdministrator
+	-ime
+	-prezime
+	-mail
+-AdministratorKlijent
+	-ime
+	-prezime
+	-mail
+-Grupa
+	-Naziv
+	-List<AdministratorKlijent>
+-Ruta
+-Vozilo
+-Vozaè
+-...
+.
+.
+
+Konkretan zadatak:
+
+*****************************************************************************************************************************************
++	Svaki od nas treba da napravi spisak klasa i spisak metoda, unutar jednog .txt file-a, 						+
++	i da commita na github pod team-tasks u formatu klase_benjo.txt, a nakon toga æemo ih merge-at, i pristupiti crtanju.		+		
+*****************************************************************************************************************************************
+To bi trebalo da se dovrši najdalje do petka podne, a nakon toga da se pristupi kreiranju veza i crtanju dijagrama.
+Dijagram se mora crtati na jednom fajlu, tako da æemo to morati uraditi ili skupno, ili jedan sam, ili dvojica - trojica zajedno.
+
+--------------------------
+24.03.2016.
+Sala 2-02 - Predavanje RMA
+Task by Ben
