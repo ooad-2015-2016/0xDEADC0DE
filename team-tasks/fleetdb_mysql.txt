@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `fleetdb`.`routes` (
   `origin` VARCHAR(255) NULL,
   `origin_lat` FLOAT(10,6) NULL,
   `origin_long` FLOAT(10,6) NULL,
-  `destination` INT NULL,
+  `destination` VARCHAR(255) NULL,
   `destination_lat` FLOAT(10,6) NULL,
   `destination_long` FLOAT(10,6) NULL,
   PRIMARY KEY (`id`))

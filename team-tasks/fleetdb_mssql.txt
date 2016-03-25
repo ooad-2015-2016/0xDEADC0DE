@@ -107,7 +107,7 @@ CREATE TABLE fleetdb.routes (
   [origin] VARCHAR(255) NULL,
   [origin_lat] FLOAT NULL,
   [origin_long] FLOAT NULL,
-  [destination] INT NULL,
+  [destination] VARCHAR(255) NULL,
   [destination_lat] FLOAT NULL,
   [destination_long] FLOAT NULL,
   PRIMARY KEY ([id]))
