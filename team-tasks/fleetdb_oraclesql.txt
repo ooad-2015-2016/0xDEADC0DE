@@ -1,0 +1,307 @@
+/* SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0; */
+/* SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0; */
+/* SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES'; */
+
+-- -----------------------------------------------------
+-- Schema fleetdb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema fleetdb
+-- -----------------------------------------------------
+CREATE USER fleetdb IDENTIFIED BY fleetdb /* DEFAULT CHARACTER SET utf8 */ /* COLLATE utf8_general_ci */ ;
+ALTER SESSION SET CURRENT_SCHEMA = fleetdb ;
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`groups`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.groups (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(255) NULL,
+  public NUMBER(3) NULL,
+  PRIMARY KEY (id))
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.groups_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.groups_seq_tr
+ BEFORE INSERT ON fleetdb.groups FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.groups_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`accounts`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.accounts (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(255) NULL,
+  email VARCHAR2(255) NULL,
+  password VARCHAR2(255) NULL,
+  last_active TIMESTAMP(0) NULL,
+  created_at TIMESTAMP(0) NULL,
+  updated_at TIMESTAMP(0) NULL,
+  is_global_admin NUMBER(3) NULL,
+  group_id NUMBER(10) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT email_UNIQUE UNIQUE  (email)
+ ,
+  CONSTRAINT fk_account_group
+    FOREIGN KEY (group_id)
+    REFERENCES fleetdb.groups (id)
+   )
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.accounts_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.accounts_seq_tr
+ BEFORE INSERT ON fleetdb.accounts FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.accounts_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX fk_account_group_idx ON fleetdb.accounts (group_id ASC);
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`vehicle_types`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.vehicle_types (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(45) NULL,
+  PRIMARY KEY (id))
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.vehicle_types_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.vehicle_types_seq_tr
+ BEFORE INSERT ON fleetdb.vehicle_types FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.vehicle_types_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`vehicles`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.vehicles (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(255) NULL,
+  type_id NUMBER(10) NULL,
+  registration_number VARCHAR2(255) NULL,
+  chassis_number VARCHAR2(255) NULL,
+  group_id NUMBER(10) NULL,
+  PRIMARY KEY (id)
+ ,
+  CONSTRAINT fk_vehicle_type
+    FOREIGN KEY (type_id)
+    REFERENCES fleetdb.vehicle_types (id)
+   ,
+  CONSTRAINT fk_vehicle_group
+    FOREIGN KEY (group_id)
+    REFERENCES fleetdb.groups (id)
+   )
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.vehicles_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.vehicles_seq_tr
+ BEFORE INSERT ON fleetdb.vehicles FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.vehicles_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX fk_vehicle_type_idx ON fleetdb.vehicles (type_id ASC);
+CREATE INDEX fk_vehicle_group_idx ON fleetdb.vehicles (group_id ASC);
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`drivers`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.drivers (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(255) NULL,
+  social_number VARCHAR2(20) NULL,
+  PRIMARY KEY (id))
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.drivers_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.drivers_seq_tr
+ BEFORE INSERT ON fleetdb.drivers FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.drivers_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`routes`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.routes (
+  id NUMBER(10) NOT NULL,
+  name VARCHAR2(255) NULL,
+  origin VARCHAR2(255) NULL,
+  origin_lat BINARY_DOUBLE NULL,
+  origin_long BINARY_DOUBLE NULL,
+  destination NUMBER(10) NULL,
+  destination_lat BINARY_DOUBLE NULL,
+  destination_long BINARY_DOUBLE NULL,
+  PRIMARY KEY (id))
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.routes_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.routes_seq_tr
+ BEFORE INSERT ON fleetdb.routes FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.routes_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`devices`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.devices (
+  id NUMBER(10) NOT NULL,
+  group_id NUMBER(10) NULL,
+  PRIMARY KEY (id)
+ ,
+  CONSTRAINT fk_device_group
+    FOREIGN KEY (group_id)
+    REFERENCES fleetdb.groups (id)
+   )
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.devices_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.devices_seq_tr
+ BEFORE INSERT ON fleetdb.devices FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.devices_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX fk_device_group_idx ON fleetdb.devices (group_id ASC);
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`invoices`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.invoices (
+  id NUMBER(10) NOT NULL,
+  token VARCHAR2(20) NULL,
+  route_id NUMBER(10) NULL,
+  vehicle_id NUMBER(10) NULL,
+  device_id NUMBER(10) NULL,
+  driver_id NUMBER(10) NULL,
+  group_id NUMBER(10) NULL,
+  finished NUMBER(3) NULL,
+  created_at TIMESTAMP(0) NULL,
+  updated_at TIMESTAMP(0) NULL,
+  started_at TIMESTAMP(0) NULL,
+  finished_at TIMESTAMP(0) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT token_UNIQUE UNIQUE  (token)
+ ,
+  CONSTRAINT fk_invoice_route
+    FOREIGN KEY (route_id)
+    REFERENCES fleetdb.routes (id)
+   ,
+  CONSTRAINT fk_invoice_vehicle
+    FOREIGN KEY (vehicle_id)
+    REFERENCES fleetdb.vehicles (id)
+   ,
+  CONSTRAINT fk_invoice_device
+    FOREIGN KEY (device_id)
+    REFERENCES fleetdb.devices (id)
+   ,
+  CONSTRAINT fk_invoice_driver
+    FOREIGN KEY (driver_id)
+    REFERENCES fleetdb.drivers (id)
+   ,
+  CONSTRAINT fk_invoice_group
+    FOREIGN KEY (group_id)
+    REFERENCES fleetdb.groups (id)
+   )
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.invoices_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.invoices_seq_tr
+ BEFORE INSERT ON fleetdb.invoices FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.invoices_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX fk_invoice_route_idx ON fleetdb.invoices (route_id ASC);
+CREATE INDEX fk_invoice_vehicle_idx ON fleetdb.invoices (vehicle_id ASC);
+CREATE INDEX fk_invoice_device_idx ON fleetdb.invoices (device_id ASC);
+CREATE INDEX fk_invoice_driver_idx ON fleetdb.invoices (driver_id ASC);
+CREATE INDEX fk_invoice_group_idx ON fleetdb.invoices (group_id ASC);
+
+
+-- -----------------------------------------------------
+-- Table `fleetdb`.`ticks`
+-- -----------------------------------------------------
+CREATE TABLE fleetdb.ticks (
+  id NUMBER(10) NOT NULL,
+  device_id NUMBER(10) NULL,
+  invoice_id NUMBER(10) NULL,
+  lat BINARY_DOUBLE NULL,
+  long BINARY_DOUBLE NULL,
+  message VARCHAR2(255) NULL,
+  created_at TIMESTAMP(0) NULL,
+  PRIMARY KEY (id)
+ ,
+  CONSTRAINT fk_tick_device
+    FOREIGN KEY (device_id)
+    REFERENCES fleetdb.devices (id)
+   ,
+  CONSTRAINT fk_tick_invoice
+    FOREIGN KEY (invoice_id)
+    REFERENCES fleetdb.invoices (id)
+   )
+;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE fleetdb.ticks_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER fleetdb.ticks_seq_tr
+ BEFORE INSERT ON fleetdb.ticks FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT fleetdb.ticks_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX fk_tick_device_idx ON fleetdb.ticks (device_id ASC);
+CREATE INDEX fk_tick_invoice_idx ON fleetdb.ticks (invoice_id ASC);
+
+
+/* SET SQL_MODE=@OLD_SQL_MODE; */
+/* SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS; */
+/* SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS; */
