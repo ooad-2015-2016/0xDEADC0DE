@@ -1,0 +1,1 @@
+invoice ne moze biti bez vozila! (agregacija? kompozicija?)
