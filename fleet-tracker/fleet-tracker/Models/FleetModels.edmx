@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FleetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastActive" Type="datetime" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="GroupID" Type="int" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="SocialNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="GroupID" Type="int" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Public" Type="smallint" />
+        </EntityType>
+        <EntityType Name="GroupDevice">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="device_id" Type="int" />
+          <Property Name="group_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="20" />
+          <Property Name="RouteID" Type="int" />
+          <Property Name="VehicleID" Type="int" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="DriverID" Type="int" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="Finished" Type="smallint" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="StartedAt" Type="datetime" />
+          <Property Name="FinishedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="255" />
+          <Property Name="OriginLat" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="OriginLong" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="255" />
+          <Property Name="DestinationLat" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="DestinationLong" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="GroupID" Type="int" />
+        </EntityType>
+        <EntityType Name="Tick">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="int" />
+          <Property Name="InvoiceID" Type="int" />
+          <Property Name="Lat" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="Long" Type="numeric" Precision="10" Scale="6" />
+          <Property Name="Message" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChassisNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="GroupID" Type="int" />
+        </EntityType>
+        <EntityType Name="VehicleType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <Association Name="account$fk_account_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="account$fk_account_type">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="driver$fk_driver_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupdevices$fk_groupdevice_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="GroupDevice" Type="Self.GroupDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupDevice">
+              <PropertyRef Name="device_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupdevices$fk_groupdevice_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="GroupDevice" Type="Self.GroupDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupDevice">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice$fk_invoice_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice$fk_invoice_driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice$fk_invoice_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice$fk_invoice_route">
+          <End Role="Route" Type="Self.Route" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice$fk_invoice_vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="route$fk_route_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Route" Type="Self.Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tick$fk_tick_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="Tick" Type="Self.Tick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tick">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tick$fk_tick_invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="Tick" Type="Self.Tick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tick">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle$fk_vehicle_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle$fk_vehicle_type">
+          <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehicleType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FleetModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Device" EntityType="Self.Device" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="GroupDevice" EntityType="Self.GroupDevice" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Route" EntityType="Self.Route" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Tick" EntityType="Self.Tick" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="fleetdb" store:Type="Tables" />
+          <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="fleetdb" store:Type="Tables" />
+          <AssociationSet Name="account$fk_account_group" Association="Self.account$fk_account_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="account$fk_account_type" Association="Self.account$fk_account_type">
+            <End Role="AccountType" EntitySet="AccountType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="driver$fk_driver_group" Association="Self.driver$fk_driver_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="groupdevices$fk_groupdevice_device" Association="Self.groupdevices$fk_groupdevice_device">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="GroupDevice" EntitySet="GroupDevice" />
+          </AssociationSet>
+          <AssociationSet Name="groupdevices$fk_groupdevice_group" Association="Self.groupdevices$fk_groupdevice_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="GroupDevice" EntitySet="GroupDevice" />
+          </AssociationSet>
+          <AssociationSet Name="invoice$fk_invoice_device" Association="Self.invoice$fk_invoice_device">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="invoice$fk_invoice_driver" Association="Self.invoice$fk_invoice_driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="invoice$fk_invoice_group" Association="Self.invoice$fk_invoice_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="invoice$fk_invoice_route" Association="Self.invoice$fk_invoice_route">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="invoice$fk_invoice_vehicle" Association="Self.invoice$fk_invoice_vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="route$fk_route_group" Association="Self.route$fk_route_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Route" EntitySet="Route" />
+          </AssociationSet>
+          <AssociationSet Name="tick$fk_tick_device" Association="Self.tick$fk_tick_device">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Tick" EntitySet="Tick" />
+          </AssociationSet>
+          <AssociationSet Name="tick$fk_tick_invoice" Association="Self.tick$fk_tick_invoice">
+            <End Role="Invoice" EntitySet="Invoice" />
+            <End Role="Tick" EntitySet="Tick" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle$fk_vehicle_group" Association="Self.vehicle$fk_vehicle_group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle$fk_vehicle_type" Association="Self.vehicle$fk_vehicle_type">
+            <End Role="VehicleType" EntitySet="VehicleType" />
+            <End Role="Vehicle" EntitySet="Vehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FleetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastActive" Type="DateTime" Precision="3" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="Group" Relationship="Self.account_fk_account_group" FromRole="Account" ToRole="Group" />
+          <NavigationProperty Name="AccountType" Relationship="Self.account_fk_account_type" FromRole="Account" ToRole="AccountType" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.account_fk_account_type" FromRole="AccountType" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="GroupDevices" Relationship="Self.groupdevices_fk_groupdevice_device" FromRole="Device" ToRole="GroupDevice" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoice_fk_invoice_device" FromRole="Device" ToRole="Invoice" />
+          <NavigationProperty Name="Ticks" Relationship="Self.tick_fk_tick_device" FromRole="Device" ToRole="Tick" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SocialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="Group" Relationship="Self.driver_fk_driver_group" FromRole="Driver" ToRole="Group" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoice_fk_invoice_driver" FromRole="Driver" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Public" Type="Int16" />
+          <NavigationProperty Name="Accounts" Relationship="Self.account_fk_account_group" FromRole="Group" ToRole="Account" />
+          <NavigationProperty Name="Drivers" Relationship="Self.driver_fk_driver_group" FromRole="Group" ToRole="Driver" />
+          <NavigationProperty Name="GroupDevices" Relationship="Self.groupdevices_fk_groupdevice_group" FromRole="Group" ToRole="GroupDevice" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoice_fk_invoice_group" FromRole="Group" ToRole="Invoice" />
+          <NavigationProperty Name="Routes" Relationship="Self.route_fk_route_group" FromRole="Group" ToRole="Route" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.vehicle_fk_vehicle_group" FromRole="Group" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="GroupDevice">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="device_id" Type="Int32" />
+          <Property Name="group_id" Type="Int32" />
+          <NavigationProperty Name="Device" Relationship="Self.groupdevices_fk_groupdevice_device" FromRole="GroupDevice" ToRole="Device" />
+          <NavigationProperty Name="Group" Relationship="Self.groupdevices_fk_groupdevice_group" FromRole="GroupDevice" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Token" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RouteID" Type="Int32" />
+          <Property Name="VehicleID" Type="Int32" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="DriverID" Type="Int32" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="Finished" Type="Int16" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="StartedAt" Type="DateTime" Precision="3" />
+          <Property Name="FinishedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Device" Relationship="Self.invoice_fk_invoice_device" FromRole="Invoice" ToRole="Device" />
+          <NavigationProperty Name="Driver" Relationship="Self.invoice_fk_invoice_driver" FromRole="Invoice" ToRole="Driver" />
+          <NavigationProperty Name="Group" Relationship="Self.invoice_fk_invoice_group" FromRole="Invoice" ToRole="Group" />
+          <NavigationProperty Name="Route" Relationship="Self.invoice_fk_invoice_route" FromRole="Invoice" ToRole="Route" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.invoice_fk_invoice_vehicle" FromRole="Invoice" ToRole="Vehicle" />
+          <NavigationProperty Name="Ticks" Relationship="Self.tick_fk_tick_invoice" FromRole="Invoice" ToRole="Tick" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Origin" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OriginLat" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="OriginLong" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="Destination" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DestinationLat" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="DestinationLong" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="Group" Relationship="Self.route_fk_route_group" FromRole="Route" ToRole="Group" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoice_fk_invoice_route" FromRole="Route" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Tick">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int32" />
+          <Property Name="InvoiceID" Type="Int32" />
+          <Property Name="Lat" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="Long" Type="Decimal" Precision="10" Scale="6" />
+          <Property Name="Message" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Device" Relationship="Self.tick_fk_tick_device" FromRole="Tick" ToRole="Device" />
+          <NavigationProperty Name="Invoice" Relationship="Self.tick_fk_tick_invoice" FromRole="Tick" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="RegistrationNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ChassisNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="Int32" />
+          <NavigationProperty Name="Group" Relationship="Self.vehicle_fk_vehicle_group" FromRole="Vehicle" ToRole="Group" />
+          <NavigationProperty Name="Invoices" Relationship="Self.invoice_fk_invoice_vehicle" FromRole="Vehicle" ToRole="Invoice" />
+          <NavigationProperty Name="VehicleType" Relationship="Self.vehicle_fk_vehicle_type" FromRole="Vehicle" ToRole="VehicleType" />
+        </EntityType>
+        <EntityType Name="VehicleType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.vehicle_fk_vehicle_type" FromRole="VehicleType" ToRole="Vehicle" />
+        </EntityType>
+        <Association Name="account_fk_account_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="account_fk_account_type">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupdevices_fk_groupdevice_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="GroupDevice" Type="Self.GroupDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupDevice">
+              <PropertyRef Name="device_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice_fk_invoice_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tick_fk_tick_device">
+          <End Role="Device" Type="Self.Device" Multiplicity="0..1" />
+          <End Role="Tick" Type="Self.Tick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tick">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="driver_fk_driver_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice_fk_invoice_driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="groupdevices_fk_groupdevice_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="GroupDevice" Type="Self.GroupDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GroupDevice">
+              <PropertyRef Name="group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice_fk_invoice_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="route_fk_route_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Route" Type="Self.Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle_fk_vehicle_group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice_fk_invoice_route">
+          <End Role="Route" Type="Self.Route" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="invoice_fk_invoice_vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tick_fk_tick_invoice">
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+          <End Role="Tick" Type="Self.Tick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tick">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vehicle_fk_vehicle_type">
+          <End Role="VehicleType" Type="Self.VehicleType" Multiplicity="0..1" />
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehicleType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fleetdbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
+          <EntitySet Name="Devices" EntityType="Self.Device" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="GroupDevices" EntityType="Self.GroupDevice" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Routes" EntityType="Self.Route" />
+          <EntitySet Name="Ticks" EntityType="Self.Tick" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+          <EntitySet Name="VehicleTypes" EntityType="Self.VehicleType" />
+          <AssociationSet Name="account_fk_account_group" Association="Self.account_fk_account_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="account_fk_account_type" Association="Self.account_fk_account_type">
+            <End Role="AccountType" EntitySet="AccountTypes" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="groupdevices_fk_groupdevice_device" Association="Self.groupdevices_fk_groupdevice_device">
+            <End Role="Device" EntitySet="Devices" />
+            <End Role="GroupDevice" EntitySet="GroupDevices" />
+          </AssociationSet>
+          <AssociationSet Name="invoice_fk_invoice_device" Association="Self.invoice_fk_invoice_device">
+            <End Role="Device" EntitySet="Devices" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="tick_fk_tick_device" Association="Self.tick_fk_tick_device">
+            <End Role="Device" EntitySet="Devices" />
+            <End Role="Tick" EntitySet="Ticks" />
+          </AssociationSet>
+          <AssociationSet Name="driver_fk_driver_group" Association="Self.driver_fk_driver_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Driver" EntitySet="Drivers" />
+          </AssociationSet>
+          <AssociationSet Name="invoice_fk_invoice_driver" Association="Self.invoice_fk_invoice_driver">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="groupdevices_fk_groupdevice_group" Association="Self.groupdevices_fk_groupdevice_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="GroupDevice" EntitySet="GroupDevices" />
+          </AssociationSet>
+          <AssociationSet Name="invoice_fk_invoice_group" Association="Self.invoice_fk_invoice_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="route_fk_route_group" Association="Self.route_fk_route_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Route" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle_fk_vehicle_group" Association="Self.vehicle_fk_vehicle_group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="invoice_fk_invoice_route" Association="Self.invoice_fk_invoice_route">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="invoice_fk_invoice_vehicle" Association="Self.invoice_fk_invoice_vehicle">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="tick_fk_tick_invoice" Association="Self.tick_fk_tick_invoice">
+            <End Role="Invoice" EntitySet="Invoices" />
+            <End Role="Tick" EntitySet="Ticks" />
+          </AssociationSet>
+          <AssociationSet Name="vehicle_fk_vehicle_type" Association="Self.vehicle_fk_vehicle_type">
+            <End Role="VehicleType" EntitySet="VehicleTypes" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FleetModelStoreContainer" CdmEntityContainer="fleetdbEntities1">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="FleetModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastActive" ColumnName="LastActive" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountTypes">
+            <EntityTypeMapping TypeName="FleetModel.AccountType">
+              <MappingFragment StoreEntitySet="AccountType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="FleetModel.Device">
+              <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="FleetModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SocialNumber" ColumnName="SocialNumber" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="FleetModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Public" ColumnName="Public" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupDevices">
+            <EntityTypeMapping TypeName="FleetModel.GroupDevice">
+              <MappingFragment StoreEntitySet="GroupDevice">
+                <ScalarProperty Name="int" ColumnName="int" />
+                <ScalarProperty Name="device_id" ColumnName="device_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="FleetModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="StartedAt" ColumnName="StartedAt" />
+                <ScalarProperty Name="FinishedAt" ColumnName="FinishedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="FleetModel.Route">
+              <MappingFragment StoreEntitySet="Route">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="OriginLat" ColumnName="OriginLat" />
+                <ScalarProperty Name="OriginLong" ColumnName="OriginLong" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="DestinationLat" ColumnName="DestinationLat" />
+                <ScalarProperty Name="DestinationLong" ColumnName="DestinationLong" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ticks">
+            <EntityTypeMapping TypeName="FleetModel.Tick">
+              <MappingFragment StoreEntitySet="Tick">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="FleetModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+                <ScalarProperty Name="ChassisNumber" ColumnName="ChassisNumber" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehicleTypes">
+            <EntityTypeMapping TypeName="FleetModel.VehicleType">
+              <MappingFragment StoreEntitySet="VehicleType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

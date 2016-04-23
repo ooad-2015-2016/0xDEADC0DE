@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2028a9b9a3a140d592b506b16b739fb3" Name="Diagram1">
+        <EntityTypeShape EntityType="FleetModel.Account" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.AccountType" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Device" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Driver" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Group" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.GroupDevice" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Invoice" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Route" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Tick" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.Vehicle" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FleetModel.VehicleType" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="FleetModel.account_fk_account_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.account_fk_account_type" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.groupdevices_fk_groupdevice_device" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.invoice_fk_invoice_device" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.tick_fk_tick_device" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.driver_fk_driver_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.invoice_fk_invoice_driver" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.groupdevices_fk_groupdevice_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.invoice_fk_invoice_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.route_fk_route_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.vehicle_fk_vehicle_group" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.invoice_fk_invoice_route" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.invoice_fk_invoice_vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.tick_fk_tick_invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="FleetModel.vehicle_fk_vehicle_type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

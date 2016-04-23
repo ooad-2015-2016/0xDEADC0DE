@@ -1,0 +1,19 @@
+.site-navbar .navbar-header {
+    background-color: #59c0eb;
+}
+
+.navbar-brand-logo {
+    height: 50px;
+}
+
+@media (min-width: 768px)
+{
+  .after-run .site-menubar-unfold .site-navbar .navbar-header {
+      height: 80px;
+  }
+}
+
+.site-menubar-footer>a 
+{
+  width: 50%;
+}
