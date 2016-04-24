@@ -159,60 +159,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AccountTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelperExtensions.cs" />
-    <Compile Include="Models\Account.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
+    <Compile Include="Migrations\201604241453144_Initial.cs" />
+    <Compile Include="Migrations\201604241453144_Initial.Designer.cs">
+      <DependentUpon>201604241453144_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountType.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Device.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Driver.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FleetModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FleetModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FleetModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FleetModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FleetModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Group.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GroupDevice.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Invoice.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Route.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Tick.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Vehicle.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VehicleType.cs">
-      <DependentUpon>FleetModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Models\FleetModel.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupDevice.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Route.cs" />
+    <Compile Include="Models\Tick.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2034,16 +2003,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\FleetModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FleetModels.edmx</DependentUpon>
-      <LastGenOutput>FleetModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\FleetModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FleetModels.edmx</DependentUpon>
-      <LastGenOutput>FleetModels.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -2126,13 +2085,7 @@
     <Content Include="assets\vendor\slick-carousel\fonts\slick.ttf" />
     <Content Include="assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="assets\vendor\toastr\toastr.js.map" />
-    <EntityDeploy Include="Models\FleetModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FleetModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\FleetModels.edmx.diagram">
-      <DependentUpon>FleetModels.edmx</DependentUpon>
-    </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\fleet-tracker - Web Deploy.pubxml" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -2150,11 +2103,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Accounts\Create.cshtml" />
-    <Content Include="Views\Accounts\Delete.cshtml" />
-    <Content Include="Views\Accounts\Details.cshtml" />
-    <Content Include="Views\Accounts\Edit.cshtml" />
-    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\AccountTypes\Create.cshtml" />
+    <Content Include="Views\AccountTypes\Delete.cshtml" />
+    <Content Include="Views\AccountTypes\Details.cshtml" />
+    <Content Include="Views\AccountTypes\Edit.cshtml" />
+    <Content Include="Views\AccountTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2171,6 +2124,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604241453144_Initial.resx">
+      <DependentUpon>201604241453144_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

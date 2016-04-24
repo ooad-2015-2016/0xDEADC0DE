@@ -10,116 +10,107 @@ using fleet_tracker.Models;
 
 namespace fleet_tracker.Controllers
 {
-    public class AccountsController : Controller
+    public class AccountTypesController : Controller
     {
-        private fleetdbEntities1 db = new fleetdbEntities1();
+        private FleetModel db = new FleetModel();
 
-        // GET: Accounts
+        // GET: AccountTypes
         public ActionResult Index()
         {
-            var accounts = db.Accounts.Include(a => a.Group).Include(a => a.AccountType);
-            return View(accounts.ToList());
+            return View(db.AccountTypes.ToList());
         }
 
-        // GET: Accounts/Details/5
+        // GET: AccountTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
+            AccountType accountType = db.AccountTypes.Find(id);
+            if (accountType == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(accountType);
         }
 
-        // GET: Accounts/Create
+        // GET: AccountTypes/Create
         public ActionResult Create()
         {
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name");
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name");
             return View();
         }
 
-        // POST: Accounts/Create
+        // POST: AccountTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Email,Password,LastActive,CreatedAt,UpdatedAt,TypeID,GroupID")] Account account)
+        public ActionResult Create([Bind(Include = "ID,Name")] AccountType accountType)
         {
             if (ModelState.IsValid)
             {
-                db.Accounts.Add(account);
+                db.AccountTypes.Add(accountType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            return View(account);
+            return View(accountType);
         }
 
-        // GET: Accounts/Edit/5
+        // GET: AccountTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
+            AccountType accountType = db.AccountTypes.Find(id);
+            if (accountType == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            return View(account);
+            return View(accountType);
         }
 
-        // POST: Accounts/Edit/5
+        // POST: AccountTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Email,Password,LastActive,CreatedAt,UpdatedAt,TypeID,GroupID")] Account account)
+        public ActionResult Edit([Bind(Include = "ID,Name")] AccountType accountType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(account).State = EntityState.Modified;
+                db.Entry(accountType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            return View(account);
+            return View(accountType);
         }
 
-        // GET: Accounts/Delete/5
+        // GET: AccountTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
+            AccountType accountType = db.AccountTypes.Find(id);
+            if (accountType == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(accountType);
         }
 
-        // POST: Accounts/Delete/5
+        // POST: AccountTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Account account = db.Accounts.Find(id);
-            db.Accounts.Remove(account);
+            AccountType accountType = db.AccountTypes.Find(id);
+            db.AccountTypes.Remove(accountType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
