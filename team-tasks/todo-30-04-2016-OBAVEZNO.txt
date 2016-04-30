@@ -29,8 +29,8 @@ Muamer
       1.2. Tick
       1.3. VehicleType
       
-Kako ? Skoro sve se automatski generiše sa scaffolding ... desni klik,
-new scaffolded item, MVC, controller&view for model ... na kraju krajeva,
-google, msdn, ima resursa ...
+Kako ? Skoro sve se automatski generiše sa scaffolding ... desni klik na
+controllers folder, new scaffolded item, MVC, controller&view for model 
+... na kraju krajeva, google, msdn, ima resursa ... -> no excuses <-
 
 ***********URADITI DO PONEDJELJKA NAVEČER*********
