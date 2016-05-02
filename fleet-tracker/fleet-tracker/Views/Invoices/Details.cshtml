@@ -1,0 +1,106 @@
+﻿@model fleet_tracker.Models.Invoice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Device.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Device.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driver.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Route.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Token)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Token)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finished)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishedAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -160,7 +160,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountTypesController.cs" />
+    <Compile Include="Controllers\DevicesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2108,6 +2110,16 @@
     <Content Include="Views\AccountTypes\Details.cshtml" />
     <Content Include="Views\AccountTypes\Edit.cshtml" />
     <Content Include="Views\AccountTypes\Index.cshtml" />
+    <Content Include="Views\Devices\Create.cshtml" />
+    <Content Include="Views\Devices\Delete.cshtml" />
+    <Content Include="Views\Devices\Details.cshtml" />
+    <Content Include="Views\Devices\Edit.cshtml" />
+    <Content Include="Views\Devices\Index.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
