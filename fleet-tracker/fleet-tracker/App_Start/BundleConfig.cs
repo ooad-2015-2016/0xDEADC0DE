@@ -28,10 +28,11 @@ namespace fleet_tracker
                 ));
 
             bundles.Add(new StyleBundle("~/bundles/core-fonts-css")
-                   .Include(
-                    "~/assets/fonts/web-icons/web-icons.min.css", new CssRewriteUrlTransform())
-                   .Include("~/assets/fonts/brand-icons/brand-icons.min.css", new CssRewriteUrlTransform())
-                   );
+                  .Include(
+                   "~/assets/fonts/web-icons/web-icons.min.css", new CssRewriteUrlTransform())
+                  .Include("~/assets/fonts/brand-icons/brand-icons.min.css", new CssRewriteUrlTransform())
+                  .Include("~/assets/fonts/font-awesome/font-awesome.min.css", new CssRewriteUrlTransform())
+                  );
 
             bundles.Add(new StyleBundle("~/bundles/roboto-font-css", "http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic").Include(
                     "~/assets/fonts/google/css.css"
@@ -61,11 +62,7 @@ namespace fleet_tracker
                         "~/assets/vendor/jvectormap/jquery-jvectormap.min.js",
                         "~/assets/vendor/jvectormap/maps/jquery-jvectormap-ca-lcc-en.js",
                         "~/assets/vendor/matchheight/jquery.matchHeight-min.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/googlemapsapi-scripts", "http://maps.google.com/maps/api/js?sensor=false").Include(
-                    "~/assets/vendor/google/api.js"
-                ));
-
+            
             bundles.Add(new ScriptBundle("~/bundles/page-scripts").Include(
                         "~/assets/vendor/gmaps/gmaps.js",
                         "~/assets/js/core.js",

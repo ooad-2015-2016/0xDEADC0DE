@@ -17,3 +17,21 @@
 {
   width: 50%;
 }
+
+.navbar-brand-logo 
+{
+    display: block;
+    width: 150px;
+    height: 60px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    margin-top: -10px;
+}
+
+.site-menubar-fold .navbar-brand-logo 
+{
+    width: 44px;
+    height: 60px;
+    background-image: url("../images/logo_small.png");
+    margin-top: -20px;
+}
