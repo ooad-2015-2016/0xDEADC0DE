@@ -9,6 +9,7 @@ namespace fleet_tracker.Models
     [Table("fleetdb.Account")]
     public partial class Account
     {
+        // samo testiram nesto
         public int ID { get; set; }
 
         [StringLength(255)]
