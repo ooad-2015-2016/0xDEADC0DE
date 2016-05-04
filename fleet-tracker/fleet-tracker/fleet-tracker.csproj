@@ -2093,7 +2093,6 @@
     <Content Include="assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="assets\vendor\toastr\toastr.js.map" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="ClassDiagram2.cd" />
     <None Include="Properties\PublishProfiles\fleet-tracker - Web Deploy.pubxml" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
