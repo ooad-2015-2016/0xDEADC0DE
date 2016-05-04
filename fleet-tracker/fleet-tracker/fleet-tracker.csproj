@@ -2093,6 +2093,7 @@
     <Content Include="assets\vendor\slick-carousel\fonts\slick.woff" />
     <Content Include="assets\vendor\toastr\toastr.js.map" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Properties\PublishProfiles\fleet-tracker - Web Deploy.pubxml" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -2135,21 +2136,21 @@
     <Content Include="Views\GroupDevices\Details.cshtml" />
     <Content Include="Views\GroupDevices\Edit.cshtml" />
     <Content Include="Views\GroupDevices\Index.cshtml" />
-    <Content Include="Views\Drivers\Create.cshtml" />
-    <Content Include="Views\Drivers\Delete.cshtml" />
-    <Content Include="Views\Drivers\Details.cshtml" />
-    <Content Include="Views\Drivers\Edit.cshtml" />
-    <Content Include="Views\Drivers\Index.cshtml" />
-    <Content Include="Views\Routes\Create.cshtml" />
-    <Content Include="Views\Routes\Delete.cshtml" />
-    <Content Include="Views\Routes\Details.cshtml" />
-    <Content Include="Views\Routes\Edit.cshtml" />
-    <Content Include="Views\Routes\Index.cshtml" />
     <Content Include="Views\Vehicles\Create.cshtml" />
     <Content Include="Views\Vehicles\Delete.cshtml" />
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Routes\Create.cshtml" />
+    <Content Include="Views\Routes\Delete.cshtml" />
+    <Content Include="Views\Routes\Details.cshtml" />
+    <Content Include="Views\Routes\Edit.cshtml" />
+    <Content Include="Views\Routes\Index.cshtml" />
+    <Content Include="Views\Drivers\Create.cshtml" />
+    <Content Include="Views\Drivers\Delete.cshtml" />
+    <Content Include="Views\Drivers\Details.cshtml" />
+    <Content Include="Views\Drivers\Edit.cshtml" />
+    <Content Include="Views\Drivers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

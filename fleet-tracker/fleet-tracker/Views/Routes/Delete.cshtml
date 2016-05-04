@@ -1,96 +1,88 @@
 ﻿@model fleet_tracker.Models.Route
 
 @{
-    Layout = null;
+    ViewBag.Title = "Delete";
 }
 
-<!DOCTYPE html>
+<h2>Delete</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Route</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Group.Name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Group.Name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Origin)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Origin)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.OriginLat)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.OriginLat)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.OriginLong)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.OriginLong)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Destination)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Destination)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DestinationLat)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DestinationLat)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DestinationLong)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DestinationLong)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
-    </div>
-</body>
-</html>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Route</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginLat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginLat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginLong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginLong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinationLat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinationLat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinationLong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinationLong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
