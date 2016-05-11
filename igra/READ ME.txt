@@ -1,0 +1,37 @@
+Pitanja i odgovori:
+
+P: Je li mapa Sarajeva skinuta sa Google-a ?
+A: Ne, skinuta je sa stranice http://katastar.ba koristeci
+   homemade skriptu koja je poskidala 256x256 tile-ove,
+   spojila ih u jedan veliki fajl te podijelila u 2048x2048
+   tile-ove za korištenje u Unity-u, te je na svaki tile 
+   stavljen cut-out efekat da izgleda kofol ko "crtani".
+
+P: Kako je model staze napravljen?
+A: U SketchUp-u 2016, citava staza je jedan model napravljen
+   sa arc i extrude tool-om u SketchUpu. prema sara.skp fajlu
+   bi se trebala praviti staza (odnosno sara_no_offset gdje
+   nema ograde, koja se treba inace staviti na kraju).
+
+P: Kako je onoliki kod ispisan u TreePlacer.cs ?
+A: Korišten je ingame "tree editor" koji je drva postavljao
+   klikom i koji je producirao taj kod koji se smjestio u
+   TreePlacer.cs
+
+P: Zašto je sve malo, kad ubacim neki objekat, ogroman je?!
+A: Buduci da su teksture 2048x2048, te da ima 6x2 takvih tile-
+   ova, kamera i scale modela je prilagoden tako da tekstura
+   "poda" (odnosno grada) izgleda iole kvalitetna, da ne bi
+   izgledalo low-res.
+
+P: Pa kako cu riješiti ovo?
+A: Napraviti objekat normala ili šta vec, te prilagoditi scale
+   u Unity-u.
+
+P: Kako da izmijenim kameru?
+A: Pogledati CamBehav.cs fajl. Tu piše ugao pod kojim se gleda
+   automobil, te daljina (visina) od automobila.
+
+P: Ima nekih modela koji nemaju teksturu (zemaljski muzej,
+   mašinska srednja). Šta je problem?
+A: Nisu fino skinuti modeli sa Google Earth, može se popraviti.
