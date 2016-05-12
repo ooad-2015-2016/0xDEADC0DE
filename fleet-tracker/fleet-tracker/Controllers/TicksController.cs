@@ -40,6 +40,7 @@ namespace fleet_tracker.Controllers
         // GET: Ticks/Create
         public ActionResult Create()
         {
+            
             ViewBag.DeviceID = new SelectList(db.Devices, "ID", "ID");
             ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Token");
             return View();
