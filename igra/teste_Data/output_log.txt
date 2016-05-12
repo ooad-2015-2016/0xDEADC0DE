@@ -1,0 +1,719 @@
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     2103 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.226 seconds
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Fakultet_ETF\2. godina\IV semestar\OOAD\Projekat\0xdeadc0de\igra\teste_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.195052 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2f4c -> priority: 1 
+Pozicija: (-30.3, 0.4, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.6, 0.4, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.3, 0.4, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.4, 0.4, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.4, 0.9, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.7, 0.7, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.8, 0.6, 4.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.8, 0.6, 4.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.6, 0.4, 4.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.4, 0.4, 4.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.3, 0.5, 4.6)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.2, 0.5, 4.6)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.1, 0.4, 4.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.0, 0.4, 4.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.0, 0.4, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.0, 0.7, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.3, 0.4, 3.6)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.7, 0.4, 3.5)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.6, 0.4, 3.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.2, 0.4, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.9, 0.5, 4.5)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.1, 0.5, 4.7)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.7, 0.4, 3.1)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.2, 0.6, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.3, 0.5, 4.1)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 0.4, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 0.8, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.0, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.3, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.3, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.3, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.2, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.7, 0.4, 3.9)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.9, 0.4, 4.1)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.8, 0.5, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.7, 0.8, 4.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.5, 0.5, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.3, 0.4, 4.2)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.3, 0.4, 4.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 0.5, 4.5)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.8, 0.5, 4.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.6, 0.4, 4.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-31.0, 0.5, 4.6)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.6, 0.4, 3.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-32.2, 0.4, 2.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.4, 0.4, 4.6)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.3, 0.5, 3.7)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-29.6, 1.0, 3.8)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Pozicija: (-30.1, 0.4, 3.3)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnauthorizedAccessException: Access to the path "C:\trees.txt" is denied.
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in <filename unknown>:0 
+  at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append, System.Text.Encoding encoding, Int32 bufferSize) [0x00000] in <filename unknown>:0 
+  at System.IO.StreamWriter..ctor (System.String path, Boolean append) [0x00000] in <filename unknown>:0 
+  at System.IO.File.AppendAllText (System.String path, System.String contents) [0x00000] in <filename unknown>:0 
+  at CamBehav.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
