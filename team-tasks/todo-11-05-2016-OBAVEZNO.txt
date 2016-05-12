@@ -1,0 +1,36 @@
+﻿ROK: PETAK (14.05.2016)
+
+ZADATAK:
+
+Po uzoru na https://github.com/ooad-2014-2015/AVETim/blob/master/Igra/CM%20Robber.jpg
+
+Dizajnirati klase
+
+Benjamin Ramić: Car
+Muamer Polić: Timer
+Muhamed Parić: Obstacle
+Ahmed: smisliti neku
+
+Slobodno izmislite metode i atribute, skontaćemo konkretno poslije kako implementirati. 
+Za Car recimo treba biti setSpeed, sa Timer recimo isOut, za Obstacle setMass (u smislu 
+koliko je teško 'raznijeti' autom obstacle). 
+
+_________________________________
+ROK: PONEDJELJAK (23.05.2016)
+
+Commitani su "temelji" igre. Urađena je osnovna funkcionalnost (stavljen "flat" terrain, 
+stavljena staza, osnovne teksture, drveca, modeli i moguce je voziti auto). 
+
+****Pročitati READ ME unutar foldera "igra" za neke dodatne informacije*****.
+
+Benjamin: WAYPOINTS, napraviti start i finish waypoint, da se pri startu prikaze neki 
+particle effect i pri kraju isto
+
+Muamer: TIMERS & SIMPLE HUD; da se prikazuje negdje na GUIu dok se vozi, da mjeri 
+vrijeme trajanja trke, takodjer prikazivati i brzinu vozila na GUI-u
+
+Muhamed: GUI; skontati menije, napraviti početni meni gdje ima start i exit 
+(eventualno pauzu ako ne bude komplikovano plaho)
+
+Ahmed: Popraviti fiziku, handling auta, koliziju sa ogradom, dodati zgrada još, skontati
+occlusion culling je li radi kako treba da se ne troše resursi 
