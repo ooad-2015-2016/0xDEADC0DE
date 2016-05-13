@@ -46,6 +46,24 @@ namespace fleet_tracker.Controllers
             return View();
         }
 
+        // GET: Ticks/API_Create
+        public async Task<ActionResult> API_Create(int deviceID, string token, Decimal lat, Decimal lon, string message)
+        {
+             Tick tick = new Tick();
+             tick.DeviceID = deviceID;
+             tick.InvoiceID = db.Invoices.Where(x => x.Token == token).First().ID;
+             tick.Lat = lat;
+             tick.Long = lon;
+             tick.Message = message;
+             tick.CreatedAt = DateTime.Now;
+
+             db.Ticks.Add(tick);
+
+             await db.SaveChangesAsync();
+             return RedirectToAction("Index");
+        }
+
+
         // POST: Ticks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
