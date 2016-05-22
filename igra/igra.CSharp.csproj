@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CamBehav.cs" />
+    <Compile Include="Assets\Menu.cs" />
     <Compile Include="Assets\RotatingObject.cs" />
     <Compile Include="Assets\TreePlacer.cs" />
   </ItemGroup>
