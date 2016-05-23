@@ -1,0 +1,6 @@
+Tok prezentacije:
+
+	Muhamed: Opis teme (Šta sistem radi, kome æe služiti), Akteri (O svakom akteru po reèenica)
+¸	Muamer: Funkcionalnosti, Procesi
+	Benjamin: Dijagrami
+	Ahmed: Implementacija
