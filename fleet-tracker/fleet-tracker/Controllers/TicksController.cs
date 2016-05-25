@@ -13,8 +13,12 @@ namespace fleet_tracker.Controllers
 {
     public class TicksController : Controller
     {
+<<<<<<< HEAD
         private FleetModel db = new FleetModel();
 
+=======
+        private FleetModel db = new FleetModel();        
+>>>>>>> web-api
         // GET: Ticks
         public async Task<ActionResult> Index()
         {
@@ -40,12 +44,16 @@ namespace fleet_tracker.Controllers
         // GET: Ticks/Create
         public ActionResult Create()
         {
+<<<<<<< HEAD
             
+=======
+>>>>>>> web-api
             ViewBag.DeviceID = new SelectList(db.Devices, "ID", "ID");
             ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Token");
             return View();
         }
 
+<<<<<<< HEAD
         // GET: Ticks/API_Create
         public async Task<ActionResult> API_Create(int deviceID, string token, Decimal lat, Decimal lon, string message)
         {
@@ -64,6 +72,8 @@ namespace fleet_tracker.Controllers
         }
 
 
+=======
+>>>>>>> web-api
         // POST: Ticks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -82,6 +92,10 @@ namespace fleet_tracker.Controllers
             ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Token", tick.InvoiceID);
             return View(tick);
         }
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> web-api
 
         // GET: Ticks/Edit/5
         public async Task<ActionResult> Edit(int? id)
@@ -152,5 +166,10 @@ namespace fleet_tracker.Controllers
             }
             base.Dispose(disposing);
         }
+<<<<<<< HEAD
+=======
+
+       
+>>>>>>> web-api
     }
 }

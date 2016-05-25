@@ -2153,21 +2153,27 @@
     <Content Include="Views\Drivers\Details.cshtml" />
     <Content Include="Views\Drivers\Edit.cshtml" />
     <Content Include="Views\Drivers\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Groups\Create.cshtml" />
     <Content Include="Views\Groups\Delete.cshtml" />
     <Content Include="Views\Groups\Details.cshtml" />
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
+=======
+>>>>>>> web-api
     <Content Include="Views\Ticks\Create.cshtml" />
     <Content Include="Views\Ticks\Delete.cshtml" />
     <Content Include="Views\Ticks\Details.cshtml" />
     <Content Include="Views\Ticks\Edit.cshtml" />
     <Content Include="Views\Ticks\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\VehicleTypes\Create.cshtml" />
     <Content Include="Views\VehicleTypes\Delete.cshtml" />
     <Content Include="Views\VehicleTypes\Details.cshtml" />
     <Content Include="Views\VehicleTypes\Edit.cshtml" />
     <Content Include="Views\VehicleTypes\Index.cshtml" />
+=======
+>>>>>>> web-api
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
