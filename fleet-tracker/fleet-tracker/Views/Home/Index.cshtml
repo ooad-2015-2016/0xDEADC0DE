@@ -99,12 +99,33 @@
 
 @section scripts{
 <script>
+    var map;
+
+    var this_device_id = 1;
+    var this_last_tick_id = 1;
+
+    function drawTicksSince(device_id, last_tick_id) {
+        $.getJSON("/api/ticks/" + device_id + "/" + last_tick_id, function (data) {
+            $.each(data, function (index, tick) {
+                this_last_tick_id = tick.ID;
+
+                map.drawOverlay({
+                    lat: tick.Lat,
+                    lng: tick.Long,
+                    content: '<i class="wb-map" style="font-size:40px;color:' +
+                      $.colors("blue", 500) + ';"></i>',
+                });
+            });
+
+
+        });
+
+        setTimeout(function () { drawTicksSince(this_device_id, this_last_tick_id); }, 6000);
+    }
+
     $(document).ready(function($) {
 
-      // Custom
-      // ------------------
-      (function() {
-        var map = new GMaps({
+        map = new GMaps({
           el: '#customGmap',
           lat: 43.8563182,
           lng: 18.398537,
@@ -120,20 +141,8 @@
 
         });
 
-        map.drawOverlay({
-          lat: 43.8562176,
-          lng: 18.398537,
-          content: '<i class="wb-map" style="font-size:40px;color:' +
-            $.colors("blue", 500) + ';"></i>',
-        });
-
-
-        map.drawOverlay({
-          lat: 43.8565215,
-          lng: 18.4231438,
-          content: '<i class="wb-map" style="font-size:40px;color:' +
-            $.colors("red", 500) + ';"></i>',
-        });
+       
+        drawTicksSince(this_device_id, this_last_tick_id);
 
         map.addStyle({
           styledMapName: "Styled Map",
@@ -143,7 +152,6 @@
 
         map.setStyle("map_style");
 
-      })();
 
       (function() {
         var snow = new Skycons({
