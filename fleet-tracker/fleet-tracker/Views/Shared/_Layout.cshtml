@@ -77,108 +77,15 @@
                 <!-- End Navbar Toolbar -->
                 <!-- Navbar Toolbar Right -->
                 <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="false"
-                           data-animation="slide-bottom" role="button">
-                            <i class="icon wb-bell" aria-hidden="true"></i>
-                            <span class="badge badge-danger up">5</span>
+                    <li>
+                        <a href="/Home/Help" title="Help">
+                            <i class="icon wb-help-circle" aria-hidden="true"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
-                            <li class="dropdown-menu-header" role="presentation">
-                                <h5>NOTIFICATIONS</h5>
-                                <span class="label label-round label-danger">New 5</span>
-                            </li>
-
-                            <li class="list-group" role="presentation">
-                                <div data-role="container">
-                                    <div data-role="content">
-                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                            <div class="media">
-                                                <div class="media-left padding-right-10">
-                                                    <i class="icon wb-order bg-red-600 white icon-circle" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">A new order has been placed</h6>
-                                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">5 hours ago</time>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                            <div class="media">
-                                                <div class="media-left padding-right-10">
-                                                    <i class="icon wb-user bg-green-600 white icon-circle" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Completed the task</h6>
-                                                    <time class="media-meta" datetime="2015-06-11T18:29:20+08:00">2 days ago</time>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                            <div class="media">
-                                                <div class="media-left padding-right-10">
-                                                    <i class="icon wb-settings bg-red-600 white icon-circle" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Settings updated</h6>
-                                                    <time class="media-meta" datetime="2015-06-11T14:05:00+08:00">2 days ago</time>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                            <div class="media">
-                                                <div class="media-left padding-right-10">
-                                                    <i class="icon wb-calendar bg-blue-600 white icon-circle" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Event started</h6>
-                                                    <time class="media-meta" datetime="2015-06-10T13:50:18+08:00">3 days ago</time>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
-                                            <div class="media">
-                                                <div class="media-left padding-right-10">
-                                                    <i class="icon wb-chat bg-orange-600 white icon-circle" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Message received</h6>
-                                                    <time class="media-meta" datetime="2015-06-10T12:34:48+08:00">3 days ago</time>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="dropdown-menu-footer" role="presentation">
-                                <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                                    <i class="icon wb-settings" aria-hidden="true"></i>
-                                </a>
-                                <a href="javascript:void(0)" role="menuitem">
-                                    All notifications
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
                 <!-- End Navbar Toolbar Right -->
             </div>
             <!-- End Navbar Collapse -->
-            <!-- Site Navbar Seach -->
-            <div class="collapse navbar-search-overlap" id="site-navbar-search">
-                <form role="search">
-                    <div class="form-group">
-                        <div class="input-search">
-                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
-                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
-                                    data-toggle="collapse" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- End Site Navbar Seach -->
         </div>
     </nav>
     <div class="site-menubar">
@@ -186,73 +93,139 @@
             <div>
                 <div>
                     <ul class="site-menu">
-                        <li class="site-menu-category">General</li>
+                        @if (User.IsInRole("Global Administrator"))
+                        {
+                            <li class="site-menu-category">General</li>
 
-                        <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Home")">
-                            <a href='@Url.Action("Index","Home")' data-slug="dashboard">
-                                <i class="site-menu-icon wb-home" aria-hidden="true"></i>
-                                <span class="site-menu-title">Home</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Home")">
+                                <a href='@Url.Action("Index", "Home")' data-slug="dashboard">
+                                    <i class="site-menu-icon wb-home" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Home</span>
+                                </a>
+                            </li>
 
-                        <li class="site-menu-item @Html.IsSelected(actions: "About", controllers: "Home")">
-                            <a href='@Url.Action("About","Home")' data-slug="dashboard">
-                                <i class="site-menu-icon fa fa-info-circle" aria-hidden="true"></i>
-                                <span class="site-menu-title">About</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-category">User Management</li>
+                            
 
-                        <li class="site-menu-item @Html.IsSelected(actions: "Contact", controllers: "Home")">
-                            <a href='@Url.Action("Contact","Home")' data-slug="dashboard">
-                                <i class="site-menu-icon fa fa-envelope" aria-hidden="true"></i>
-                                <span class="site-menu-title">Contact</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "Accounts")" data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-user" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Users</span>
+                                </a>
+                            </li>
 
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon fa fa-car" aria-hidden="true"></i>
-                                <span class="site-menu-title">Vehicles</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "AppRoles")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-star" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Roles</span>
+                                </a>
+                            </li>
 
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
-                                <span class="site-menu-title">Drivers</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "Groups")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Groups</span>
+                                </a>
+                            </li>
 
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon wb-map" aria-hidden="true"></i>
-                                <span class="site-menu-title">Routes</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-category">Device Management</li>
 
-
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-                                <span class="site-menu-title">Invoices</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "Devices")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-mobile" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Devices</span>
+                                </a>
+                            </li>
 
 
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon wb-globe" aria-hidden="true"></i>
-                                <span class="site-menu-title">Map</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "GroupDevices")" data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-arrows-alt" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Group Devices</span>
+                                </a>
+                            </li>
 
 
-                        <li class="site-menu-item">
-                            <a href="javascript:void(0)" data-slug="dashboard">
-                                <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
-                                <span class="site-menu-title">Stats</span>
-                            </a>
-                        </li>
+                            <li class="site-menu-item">
+                                <a href="@Url.Action("Index", "VehicleTypes")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-mobile" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Vehicle Types</span>
+                                </a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Client Administrator"))
+                        {
+                            <li class="site-menu-category">General</li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Home")">
+                                <a href='@Url.Action("Index", "Home")' data-slug="dashboard">
+                                    <i class="site-menu-icon wb-home" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Home</span>
+                                </a>
+                            </li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "About", controllers: "Home")">
+                                <a href='@Url.Action("About", "Home")' data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-info-circle" aria-hidden="true"></i>
+                                    <span class="site-menu-title">About</span>
+                                </a>
+                            </li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Contact", controllers: "Home")">
+                                <a href='@Url.Action("Contact", "Home")' data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-envelope" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Contact</span>
+                                </a>
+                            </li>
+
+                            <li class="site-menu-category">Tracking</li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Vehicles")">
+                                <a href="@Url.Action("Index", "Vehicles")" data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-car" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Vehicles</span>
+                                </a>
+                            </li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Drivers")">
+                                <a href="@Url.Action("Index", "Drivers")" data-slug="dashboard">
+                                    <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Drivers</span>
+                                </a>
+                            </li>
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Routes")">
+                                <a href="@Url.Action("Index", "Routes")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-map" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Routes</span>
+                                </a>
+                            </li>
+
+
+                            <li class="site-menu-item @Html.IsSelected(actions: "Index", controllers: "Invoices")">
+                                <a href="@Url.Action("Index", "Invoices")" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-table" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Invoices</span>
+                                </a>
+                            </li>
+
+
+                            <li class="site-menu-item">
+                                <a href="javascript:void(0)" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-globe" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Map</span>
+                                </a>
+                            </li>
+
+
+                            <li class="site-menu-item">
+                                <a href="javascript:void(0)" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-stats-bars" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Stats</span>
+                                </a>
+                            </li>
+                        }
                     </ul>
 
                 </div>
@@ -260,11 +233,8 @@
         </div>
 
         <div class="site-menubar-footer">
-            <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip"
-               data-original-title="Settings">
-                <span class="icon wb-settings" aria-hidden="true"></span>
-            </a>
-            <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+
+            <a href="/Home/Logout" data-placement="top" data-toggle="tooltip" data-original-title="Logout" style="width: 100%;">
                 <span class="icon wb-power" aria-hidden="true"></span>
             </a>
         </div>

@@ -7,123 +7,122 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using fleet_tracker.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace fleet_tracker.Controllers
 {
-    public class DriversController : Controller
+    public class AppRolesController : Controller
     {
         private FleetModel db = new FleetModel();
 
-        // GET: Drivers
-        [Authorize(Roles = "Client Administrator")]
+        // GET: AppRoles
+        [Authorize(Roles = "Global Administrator")]
         public ActionResult Index()
         {
-            var drivers = db.Drivers.Include(d => d.Group);
-            return View(drivers.ToList());
+            return View(db.Roles.ToList());
         }
 
-        // GET: Drivers/Details/5
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult Details(int? id)
+        // GET: AppRoles/Details/5
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Driver driver = db.Drivers.Find(id);
-            if (driver == null)
+            IdentityRole appRole = db.Roles.Find(id);
+            if (appRole == null)
             {
                 return HttpNotFound();
             }
-            return View(driver);
+            return View(appRole);
         }
 
-        // GET: Drivers/Create
-        [Authorize(Roles = "Client Administrator")]
+        // GET: AppRoles/Create
+        [Authorize(Roles = "Global Administrator")]
         public ActionResult Create()
         {
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name");
             return View();
         }
 
-        // POST: Drivers/Create
+        // POST: AppRoles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult Create([Bind(Include = "ID,Name,SocialNumber,GroupID")] Driver driver)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Create(/*[Bind(Include = "Id,Name")]*/ AppRole appRole)
         {
-            if (ModelState.IsValid)
+            var roleManager = HttpContext.GetOwinContext().GetUserManager<RoleManager<AppRole>>();
+
+            if (!roleManager.RoleExists(appRole.Name))
             {
-                db.Drivers.Add(driver);
-                db.SaveChanges();
+                roleManager.Create(new AppRole(appRole.Name));
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", driver.GroupID);
-            return View(driver);
+            return View(appRole);
         }
 
-        // GET: Drivers/Edit/5
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult Edit(int? id)
+        // GET: AppRoles/Edit/5
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Driver driver = db.Drivers.Find(id);
-            if (driver == null)
+            IdentityRole appRole = db.Roles.Find(id);
+            if (appRole == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", driver.GroupID);
-            return View(driver);
+            return View(appRole);
         }
 
-        // POST: Drivers/Edit/5
+        // POST: AppRoles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult Edit([Bind(Include = "ID,Name,SocialNumber,GroupID")] Driver driver)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Edit([Bind(Include = "Id,Name")] IdentityRole appRole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(driver).State = EntityState.Modified;
+                db.Entry(appRole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", driver.GroupID);
-            return View(driver);
+            return View(appRole);
         }
 
-        // GET: Drivers/Delete/5
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult Delete(int? id)
+        // GET: AppRoles/Delete/5
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Driver driver = db.Drivers.Find(id);
-            if (driver == null)
+            IdentityRole appRole = db.Roles.Find(id);
+            if (appRole == null)
             {
                 return HttpNotFound();
             }
-            return View(driver);
+            return View(appRole);
         }
 
-        // POST: Drivers/Delete/5
+        // POST: AppRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Client Administrator")]
-        public ActionResult DeleteConfirmed(int id)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult DeleteConfirmed(string id)
         {
-            Driver driver = db.Drivers.Find(id);
-            db.Drivers.Remove(driver);
+            IdentityRole appRole = db.Roles.Find(id);
+            db.Roles.Remove(appRole);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

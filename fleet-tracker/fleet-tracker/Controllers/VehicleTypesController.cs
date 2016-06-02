@@ -16,12 +16,14 @@ namespace fleet_tracker.Controllers
         private FleetModel db = new FleetModel();
 
         // GET: VehicleTypes
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Index()
         {
             return View(await db.VehicleTypes.ToListAsync());
         }
 
         // GET: VehicleTypes/Details/5
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: VehicleTypes/Create
+        [Authorize(Roles = "Global Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Create([Bind(Include = "ID,Name")] VehicleType vehicleType)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: VehicleTypes/Edit/5
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,6 +84,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Name")] VehicleType vehicleType)
         {
             if (ModelState.IsValid)
@@ -91,6 +97,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: VehicleTypes/Delete/5
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -108,6 +115,7 @@ namespace fleet_tracker.Controllers
         // POST: VehicleTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Global Administrator")]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             VehicleType vehicleType = await db.VehicleTypes.FindAsync(id);

@@ -16,6 +16,7 @@ namespace fleet_tracker.Controllers
         private FleetModel db = new FleetModel();
 
         // GET: Invoices
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Index()
         {
             var invoices = db.Invoices.Include(i => i.Device).Include(i => i.Driver).Include(i => i.Group).Include(i => i.Route).Include(i => i.Vehicle);
@@ -23,6 +24,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Invoices/Details/5
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Invoices/Create
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Create()
         {
             ViewBag.DeviceID = new SelectList(db.Devices, "ID", "ID");
@@ -53,6 +56,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Create([Bind(Include = "ID,Token,RouteID,VehicleID,DeviceID,DriverID,GroupID,Finished,CreatedAt,UpdatedAt,StartedAt,FinishedAt")] Invoice invoice)
         {
             if (ModelState.IsValid)
@@ -71,6 +75,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Invoices/Edit/5
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +100,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Token,RouteID,VehicleID,DeviceID,DriverID,GroupID,Finished,CreatedAt,UpdatedAt,StartedAt,FinishedAt")] Invoice invoice)
         {
             if (ModelState.IsValid)
@@ -112,6 +118,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Invoices/Delete/5
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,6 +136,7 @@ namespace fleet_tracker.Controllers
         // POST: Invoices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Invoice invoice = await db.Invoices.FindAsync(id);

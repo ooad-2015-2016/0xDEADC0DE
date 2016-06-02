@@ -12,7 +12,7 @@ namespace fleet_tracker.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Group()
         {
-            Accounts = new HashSet<Account>();
+            AppUsers = new HashSet<AppUser>();
             Drivers = new HashSet<Driver>();
             GroupDevices = new HashSet<GroupDevice>();
             Invoices = new HashSet<Invoice>();
@@ -28,7 +28,7 @@ namespace fleet_tracker.Models
         public short? Public { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<AppUser> AppUsers { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Driver> Drivers { get; set; }

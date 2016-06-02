@@ -8,33 +8,26 @@ namespace fleet_tracker.Migrations
         public override void Up()
         {
             CreateTable(
-                "fleetdb.Account",
+                "fleetdb.Device",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(maxLength: 255),
-                        Email = c.String(maxLength: 255),
-                        Password = c.String(maxLength: 255),
-                        LastActive = c.DateTime(),
-                        CreatedAt = c.DateTime(),
-                        UpdatedAt = c.DateTime(),
-                        TypeID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "fleetdb.GroupDevice",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        DeviceID = c.Int(),
                         GroupID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("fleetdb.AccountType", t => t.TypeID)
+                .ForeignKey("fleetdb.Device", t => t.DeviceID)
                 .ForeignKey("fleetdb.Group", t => t.GroupID)
-                .Index(t => t.TypeID)
+                .Index(t => t.DeviceID)
                 .Index(t => t.GroupID);
-            
-            CreateTable(
-                "fleetdb.AccountType",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(maxLength: 45),
-                    })
-                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "fleetdb.Group",
@@ -45,6 +38,67 @@ namespace fleet_tracker.Migrations
                         Public = c.Short(),
                     })
                 .PrimaryKey(t => t.ID);
+            
+            CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Email = c.String(maxLength: 256),
+                        EmailConfirmed = c.Boolean(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
+                        PhoneNumberConfirmed = c.Boolean(nullable: false),
+                        TwoFactorEnabled = c.Boolean(nullable: false),
+                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEnabled = c.Boolean(nullable: false),
+                        AccessFailedCount = c.Int(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 256),
+                        Group_ID = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("fleetdb.Group", t => t.Group_ID)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.Group_ID);
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
             
             CreateTable(
                 "fleetdb.Driver",
@@ -89,25 +143,21 @@ namespace fleet_tracker.Migrations
                 .Index(t => t.GroupID);
             
             CreateTable(
-                "fleetdb.Device",
+                "fleetdb.Route",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                    })
-                .PrimaryKey(t => t.ID);
-            
-            CreateTable(
-                "fleetdb.GroupDevice",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        DeviceID = c.Int(),
+                        Name = c.String(maxLength: 255),
+                        Origin = c.String(maxLength: 255),
+                        OriginLat = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
+                        OriginLong = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
+                        Destination = c.String(maxLength: 255),
+                        DestinationLat = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
+                        DestinationLong = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
                         GroupID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("fleetdb.Device", t => t.DeviceID)
                 .ForeignKey("fleetdb.Group", t => t.GroupID)
-                .Index(t => t.DeviceID)
                 .Index(t => t.GroupID);
             
             CreateTable(
@@ -127,24 +177,6 @@ namespace fleet_tracker.Migrations
                 .ForeignKey("fleetdb.Invoice", t => t.InvoiceID)
                 .Index(t => t.DeviceID)
                 .Index(t => t.InvoiceID);
-            
-            CreateTable(
-                "fleetdb.Route",
-                c => new
-                    {
-                        ID = c.Int(nullable: false, identity: true),
-                        Name = c.String(maxLength: 255),
-                        Origin = c.String(maxLength: 255),
-                        OriginLat = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
-                        OriginLong = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
-                        Destination = c.String(maxLength: 255),
-                        DestinationLat = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
-                        DestinationLong = c.Decimal(precision: 10, scale: 6, storeType: "numeric"),
-                        GroupID = c.Int(),
-                    })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("fleetdb.Group", t => t.GroupID)
-                .Index(t => t.GroupID);
             
             CreateTable(
                 "fleetdb.Vehicle",
@@ -172,51 +204,73 @@ namespace fleet_tracker.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("fleetdb.GroupDevice", "GroupID", "fleetdb.Group");
             DropForeignKey("fleetdb.Vehicle", "TypeID", "fleetdb.VehicleType");
             DropForeignKey("fleetdb.Invoice", "VehicleID", "fleetdb.Vehicle");
             DropForeignKey("fleetdb.Vehicle", "GroupID", "fleetdb.Group");
+            DropForeignKey("fleetdb.Tick", "InvoiceID", "fleetdb.Invoice");
+            DropForeignKey("fleetdb.Tick", "DeviceID", "fleetdb.Device");
             DropForeignKey("fleetdb.Invoice", "RouteID", "fleetdb.Route");
             DropForeignKey("fleetdb.Route", "GroupID", "fleetdb.Group");
             DropForeignKey("fleetdb.Invoice", "GroupID", "fleetdb.Group");
             DropForeignKey("fleetdb.Invoice", "DriverID", "fleetdb.Driver");
-            DropForeignKey("fleetdb.Tick", "InvoiceID", "fleetdb.Invoice");
-            DropForeignKey("fleetdb.Tick", "DeviceID", "fleetdb.Device");
             DropForeignKey("fleetdb.Invoice", "DeviceID", "fleetdb.Device");
-            DropForeignKey("fleetdb.GroupDevice", "GroupID", "fleetdb.Group");
-            DropForeignKey("fleetdb.GroupDevice", "DeviceID", "fleetdb.Device");
             DropForeignKey("fleetdb.Driver", "GroupID", "fleetdb.Group");
-            DropForeignKey("fleetdb.Account", "GroupID", "fleetdb.Group");
-            DropForeignKey("fleetdb.Account", "TypeID", "fleetdb.AccountType");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUsers", "Group_ID", "fleetdb.Group");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("fleetdb.GroupDevice", "DeviceID", "fleetdb.Device");
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("fleetdb.Vehicle", new[] { "GroupID" });
             DropIndex("fleetdb.Vehicle", new[] { "TypeID" });
-            DropIndex("fleetdb.Route", new[] { "GroupID" });
             DropIndex("fleetdb.Tick", new[] { "InvoiceID" });
             DropIndex("fleetdb.Tick", new[] { "DeviceID" });
-            DropIndex("fleetdb.GroupDevice", new[] { "GroupID" });
-            DropIndex("fleetdb.GroupDevice", new[] { "DeviceID" });
+            DropIndex("fleetdb.Route", new[] { "GroupID" });
             DropIndex("fleetdb.Invoice", new[] { "GroupID" });
             DropIndex("fleetdb.Invoice", new[] { "DriverID" });
             DropIndex("fleetdb.Invoice", new[] { "DeviceID" });
             DropIndex("fleetdb.Invoice", new[] { "VehicleID" });
             DropIndex("fleetdb.Invoice", new[] { "RouteID" });
             DropIndex("fleetdb.Driver", new[] { "GroupID" });
-            DropIndex("fleetdb.Account", new[] { "GroupID" });
-            DropIndex("fleetdb.Account", new[] { "TypeID" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "Group_ID" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("fleetdb.GroupDevice", new[] { "GroupID" });
+            DropIndex("fleetdb.GroupDevice", new[] { "DeviceID" });
+            DropTable("dbo.AspNetRoles");
             DropTable("fleetdb.VehicleType");
             DropTable("fleetdb.Vehicle");
-            DropTable("fleetdb.Route");
             DropTable("fleetdb.Tick");
-            DropTable("fleetdb.GroupDevice");
-            DropTable("fleetdb.Device");
+            DropTable("fleetdb.Route");
             DropTable("fleetdb.Invoice");
             DropTable("fleetdb.Driver");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
             DropTable("fleetdb.Group");
-            DropTable("fleetdb.AccountType");
-            DropTable("fleetdb.Account");
+            DropTable("fleetdb.GroupDevice");
+            DropTable("fleetdb.Device");
         }
     }
 }

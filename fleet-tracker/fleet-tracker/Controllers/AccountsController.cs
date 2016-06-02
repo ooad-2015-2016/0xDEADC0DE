@@ -7,7 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using fleet_tracker.Models;
-//komentar za isprobavanje grane
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using fleet_tracker.App_Start;
+
 namespace fleet_tracker.Controllers
 {
     public class AccountsController : Controller
@@ -15,20 +19,22 @@ namespace fleet_tracker.Controllers
         private FleetModel db = new FleetModel();
 
         // GET: Accounts
+        [Authorize(Roles = "Global Administrator")]
         public ActionResult Index()
         {
-            var accounts = db.Accounts.Include(a => a.AccountType).Include(a => a.Group);
+            var accounts = db.Users.Include(a => a.Group);
             return View(accounts.ToList());
         }
 
         // GET: Accounts/Details/5
-        public ActionResult Details(int? id)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
+            AppUser account = db.Users.Find(id);
             if (account == null)
             {
                 return HttpNotFound();
@@ -37,10 +43,11 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Accounts/Create
+        [Authorize(Roles = "Global Administrator")]
         public ActionResult Create()
         {
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name");
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name");
+            ViewBag.Role = new SelectList(db.Roles, "Name", "Name");
+            ViewBag.Group = new SelectList(db.Groups, "ID", "Name");
             return View();
         }
 
@@ -49,34 +56,48 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Email,Password,LastActive,CreatedAt,UpdatedAt,TypeID,GroupID")] Account account)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Create(string UserName, string Email, string PasswordHash, string Role, int Group)
         {
-            if (ModelState.IsValid)
+            FleetModel dbb = HttpContext.GetOwinContext().Get<FleetModel>();
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
+            Group g = dbb.Groups.First(a => a.ID == Group);
+            var result = userManager.Create(new AppUser
             {
-                db.Accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                UserName = UserName,
+                Email = Email,
+                EmailConfirmed = true,
+                Group = g
+            }, PasswordHash);
+
+            userManager.AddToRole(userManager.FindByName(UserName).Id, Role);
+            if (!result.Succeeded)
+            {
+                //ViewBag.Group = new SelectList(db.Groups, "ID", "Name", user.Group.ID);
+                return View();
             }
 
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
-            return View(account);
+            return RedirectToAction("Index");     
         }
 
         // GET: Accounts/Edit/5
-        public ActionResult Edit(int? id)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
+
+            AppUser account = db.Users.Find(id);
             if (account == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
+            
+            ViewBag.Role = new SelectList(db.Roles, "Name", "Name", account.Roles.First().RoleId);
+            ViewBag.Group = new SelectList(db.Groups, "ID", "Name", account.Group.ID);
             return View(account);
         }
 
@@ -85,42 +106,54 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Email,Password,LastActive,CreatedAt,UpdatedAt,TypeID,GroupID")] Account account)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Edit(string Id, string Email, string PasswordHash, int Group)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(account).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.TypeID = new SelectList(db.AccountTypes, "ID", "Name", account.TypeID);
-            ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name", account.GroupID);
-            return View(account);
+            FleetModel dbb = HttpContext.GetOwinContext().Get<FleetModel>();
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
+            var user = userManager.FindById(Id);
+            if(user == null)
+                return View(user);
+
+            user.PasswordHash = userManager.PasswordHasher.HashPassword(PasswordHash);
+            user.Email = Email;
+            user.Group = dbb.Groups.First(x => x.ID == Group);
+            userManager.Update(user);
+
+            return RedirectToAction("Index");
+
         }
 
         // GET: Accounts/Delete/5
-        public ActionResult Delete(int? id)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Account account = db.Accounts.Find(id);
+            AppUser account = db.Users.Find(id);
             if (account == null)
             {
                 return HttpNotFound();
             }
+
             return View(account);
         }
 
         // POST: Accounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [Authorize(Roles = "Global Administrator")]
+        public ActionResult DeleteConfirmed(string id)
         {
-            Account account = db.Accounts.Find(id);
-            db.Accounts.Remove(account);
-            db.SaveChanges();
+            FleetModel dbb = HttpContext.GetOwinContext().Get<FleetModel>();
+            var userManager = HttpContext.GetOwinContext().GetUserManager<AppUserManager>();
+
+            AppUser account = userManager.FindById(id);
+            userManager.Delete(account);
+
             return RedirectToAction("Index");
         }
 

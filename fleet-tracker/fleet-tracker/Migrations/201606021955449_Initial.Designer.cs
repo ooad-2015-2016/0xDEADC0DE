@@ -13,7 +13,7 @@ namespace fleet_tracker.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201604241453144_Initial"; }
+            get { return "201606021955449_Initial"; }
         }
         
         string IMigrationMetadata.Source

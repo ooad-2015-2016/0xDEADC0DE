@@ -73,22 +73,7 @@ namespace fleet_tracker.Controllers
 
             return Json("no");
         }
-
-        // POST: api/TicksApi
-        /*  [ResponseType(typeof(Tick))]
-          public async Task<IHttpActionResult> PostTick(Tick tick)
-          {
-              if (!ModelState.IsValid)
-              {
-                  return BadRequest(ModelState);
-              }
-
-              db.Ticks.Add(tick);
-              await db.SaveChangesAsync();
-
-              return CreatedAtRoute("DefaultApi", new { id = tick.ID }, tick);
-          }
-          */
+        
         // PUT: api/TicksApi/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTick(int id, Tick tick)

@@ -15,6 +15,7 @@ namespace fleet_tracker.Controllers
         private FleetModel db = new FleetModel();
 
         // GET: Routes
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Index()
         {
             var routes = db.Routes.Include(r => r.Group);
@@ -22,6 +23,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Routes/Details/5
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Routes/Create
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Create()
         {
             ViewBag.GroupID = new SelectList(db.Groups, "ID", "Name");
@@ -48,6 +51,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Create([Bind(Include = "ID,Name,Origin,OriginLat,OriginLong,Destination,DestinationLat,DestinationLong,GroupID")] Route route)
         {
             if (ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Routes/Edit/5
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +87,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Edit([Bind(Include = "ID,Name,Origin,OriginLat,OriginLong,Destination,DestinationLat,DestinationLong,GroupID")] Route route)
         {
             if (ModelState.IsValid)
@@ -95,6 +101,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Routes/Delete/5
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +119,7 @@ namespace fleet_tracker.Controllers
         // POST: Routes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Client Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             Route route = db.Routes.Find(id);

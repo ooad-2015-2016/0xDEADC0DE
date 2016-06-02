@@ -4,16 +4,15 @@ namespace fleet_tracker.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
-    public partial class FleetModel : DbContext
+    public partial class FleetModel : IdentityDbContext<AppUser>
     {
         public FleetModel()
             : base("name=FleetModel")
         {
         }
-
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<AccountType> AccountTypes { get; set; }
+       
         public virtual DbSet<Device> Devices { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
@@ -26,10 +25,7 @@ namespace fleet_tracker.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AccountType>()
-                .HasMany(e => e.Accounts)
-                .WithOptional(e => e.AccountType)
-                .HasForeignKey(e => e.TypeID);
+            base.OnModelCreating(modelBuilder);            
 
             modelBuilder.Entity<Route>()
                 .Property(e => e.OriginLat)
@@ -60,5 +56,9 @@ namespace fleet_tracker.Models
                 .WithOptional(e => e.VehicleType)
                 .HasForeignKey(e => e.TypeID);
         }
+
+       // public System.Data.Entity.DbSet<AppUserManager.Models.ApplicationUser> AppUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<> IdentityRoles { get; set; }
     }
 }

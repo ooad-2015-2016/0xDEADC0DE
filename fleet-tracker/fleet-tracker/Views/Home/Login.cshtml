@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_NotLoggedLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+
+<div class="col-md-12">
+    <div class="example-wrap"style="margin-left: auto; margin-right: auto; text-align: center;">
+        <img src="~/assets/images/header.png" style="margin-left: auto; margin-right: auto; padding-bottom: 50px;"/>
+
+        <div class="row">
+
+            <form class="col-md-offset-4 col-md-4" action="/Home/Login" method="post">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="text-center">Email</label>             
+                        <input class="form-control" type="email" name="email" id="email"/>
+                </div>
+
+                <div class="form-group" style="margin-t">
+                    <label class="text-center">Password</label>
+                        <input class="form-control" type="password" name="password" id="password" />
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Login" class="btn btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-4 col-md-2">
+                <p>
+                    <br /><br />
+                    Sample Global Administrator account:<br /><br />
+                    <b>Email: </b><i>admin@deadcode.com</i><br />
+                    <b>Password: </b><i>123456</i><br />
+                </p>
+            </div>
+            <div class="col-md-2">
+                <p>
+                    <br /><br />
+                    Sample Client Administrator account:<br /><br />
+                    <b>Email: </b><i>admin@gras.ba</i><br />
+                    <b>Password: </b><i>123456</i><br />
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

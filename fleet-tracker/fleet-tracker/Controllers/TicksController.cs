@@ -16,6 +16,7 @@ namespace fleet_tracker.Controllers
         private FleetModel db = new FleetModel();
 
         // GET: Ticks
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var ticks = db.Ticks.Include(t => t.Device).Include(t => t.Invoice);
@@ -23,6 +24,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Ticks/Details/5
+        [Authorize]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Ticks/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.DeviceID = new SelectList(db.Devices, "ID", "ID");
@@ -45,29 +48,14 @@ namespace fleet_tracker.Controllers
             return View();
         }
         
-        // GET: Ticks/API_Create
-        public async Task<ActionResult> API_Create(int deviceID, string token, Decimal lat, Decimal lon, string message)
-        {
-            Tick tick = new Tick();
-            tick.DeviceID = deviceID;
-            tick.InvoiceID = db.Invoices.Where(x => x.Token == token).First().ID;
-            tick.Lat = lat;
-            tick.Long = lon;
-            tick.Message = message;
-            tick.CreatedAt = DateTime.Now;
-
-            db.Ticks.Add(tick);
-
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
+       
         
         // POST: Ticks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Create([Bind(Include = "ID,DeviceID,InvoiceID,Lat,Long,Message,CreatedAt")] Tick tick)
         {
             if (ModelState.IsValid)
@@ -83,6 +71,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Ticks/Edit/5
+        [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -104,6 +93,7 @@ namespace fleet_tracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> Edit([Bind(Include = "ID,DeviceID,InvoiceID,Lat,Long,Message,CreatedAt")] Tick tick)
         {
             if (ModelState.IsValid)
@@ -118,6 +108,7 @@ namespace fleet_tracker.Controllers
         }
 
         // GET: Ticks/Delete/5
+        [Authorize]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +126,7 @@ namespace fleet_tracker.Controllers
         // POST: Ticks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Tick tick = await db.Ticks.FindAsync(id);
