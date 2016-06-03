@@ -386,6 +386,7 @@
     <Content Include="assets\images\bower.png" />
     <Content Include="assets\images\favicon.ico" />
     <Content Include="assets\images\grunt.png" />
+    <Content Include="assets\images\header.png" />
     <Content Include="assets\images\less.png" />
     <Content Include="assets\images\logo%402x.png" />
     <Content Include="assets\images\logo-blue%402x.png" />
