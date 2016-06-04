@@ -1,4 +1,4 @@
-![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/header.png)
+﻿![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/header.png)
 
 # 0xDEADC0DE
 
@@ -104,5 +104,16 @@ Sistem fleet tracking je SaaS, dakle korisnik ovog sistema neće brinuti o tehni
   * Ima svoj unikatni identifikator
   * Evidentiran je u databazi i povezan je sa određenom grupom
   * Komunicira sa serverom putem HTTP protokola i šalje trenutnu lokaciju i svoj ID
+
+
+### Posljednji commit
+
+* Koristi se MSSql databaza koja je hostana na azure, dakle, remote. (fleet-tracker.azurewebsites.net)
+  *Preporucujemo testiranje aplikacije na azurewebsites, mnogo je lakše nego cijeli projekat dizati na svom lokalnom računaru. Također, aplikacija je rađena na engleskom jeziku, ne treba Vas to zbunjivati, nama je bilo lakše tako. Help je ipak urađen na Bosanskom jeziku.
+* Eksterni uređaj koji se koristi je GPS (simulator i mobitel) i koristi se unutar klase ticksApiController (https://github.com/ooad-2015-2016/0xDEADC0DE/blob/master/fleet-tracker/fleet-tracker/Controllers/TicksApiController.cs)
+* Sva validacija je ispoštovana kroz CRUD koji obezbjeđuje ASP.NET (https://github.com/ooad-2015-2016/0xDEADC0DE/tree/master/fleet-tracker/fleet-tracker/Controllers)
+* Koriste se google mape na index stranici, kao i servisi za geo lokaciju unutar UWP (https://github.com/ooad-2015-2016/0xDEADC0DE/tree/master/GPSMobilnaAplikacija/GpsMobilnaAplikacija/GpsMobilnaAplikacija)
+* Korišten je boostrap koji automatski prilagođava veličinu ekrana za datu rezoluciju. Korišteno unutar cijelog projekta, a na linku iznad se može vidjeti i korištenje GPS-a unutar mobilne aplikacije.
+* Web servis koji se pruža je također kroz ticksApiController (https://github.com/ooad-2015-2016/0xDEADC0DE/blob/master/fleet-tracker/fleet-tracker/Controllers/TicksApiController.cs)
 
   ![0xdeadc0de](https://raw.githubusercontent.com/ooad-2015-2016/0xDEADC0DE/master/deadcode.png)

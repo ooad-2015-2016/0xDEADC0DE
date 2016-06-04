@@ -1,4 +1,21 @@
 ﻿@{
     ViewBag.Title = "Help";
+    ViewBag.Postovani = "Poštovani,";
+    ViewBag.Zahvala = "Hvala Vam što koristite aplikaciju fleet-tracker. Sve o aplikaciji možete naći na linku:";
+    ViewBag.Link = "https://github.com/ooad-2015-2016/0xDEADC0DE";
+    ViewBag.Koristenje = "Korištenje aplikacije je veoma intuitivno, svi CRUD-ovi se veoma lahko mogu isprobati, tako što na meniju sa lijeve strane odaberete opciju, a zatim radite na dodavanjima, izmjenama i sl., Svi unosi unutar aplikacije su validirani, tao da ne možete ništa pokvariti.";
+    ViewBag.Log = "Na početku ste se logovali kao Global-admin ili kao Klijent-admin. U ovisnosti od toga, imate različite menije i privilegije. Način korištenja aplikacije ostaje isti.";
+    ViewBag.Mapa = "Na mapi koja je prikazana i na statistikama koje su prikazane na početku se mogu vidjeti funkcionalnosti statistika unutar neke grupe, kao i aktivna vozila.";
+    ViewBag.Track = "Da bi se mogao uključiti tracking potrebno je koristiti phyton simulator koji se može naći na istom linku koji je gore prikazan. Taj simulator simulira rad GPS uređaja unutar vozila. Također, na gore navedenom linku se može pronaći i UWP aplikacija koja koristi GPS i locira trenutnu lokaciju, sa kojom se također mogu slati podaci o trenutnoj poziciji vozila na terenu.";
+    ViewBag.Obratite = "Za sva pitanja u vezi aplikacije i impelemntacije možete se obratiti članovima tima 0xdeadc0de.";
+
 }
 <h2>@ViewBag.Title.</h2>
+<p>@ViewBag.Postovani</p>
+<p>@ViewBag.Zahvala</p>
+<p>@ViewBag.Link</p>
+<p>@ViewBag.Koristenje</p>
+<p>@ViewBag.Log</p>
+<p>@ViewBag.Mapa</p>
+<p>@ViewBag.Track</p>
+<p>@ViewBag.Obratite</p>
